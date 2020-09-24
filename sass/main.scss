@@ -1,2 +1,1032 @@
 @import "./utils/variables";
 @import "./base/normalize";
+
+/*
+ палитра макета
+ Основной цвет текста #757575;
+ вторичный цвет #212121; 
+ цвет акцент #2196F3;
+ второй цвет текста #FFFFFF;
+ цвет футер ссылки rgba(255, 255, 255, 0.6);
+ цвет иконок компании #AFB1B8;
+ вторичный цвет фона #2F303A;
+ третий цвет фона #F5F4FA;
+ цвет фона градиента героя rgba(47, 48, 58, 0.4)
+ 
+*/
+/* устанавливаем тип блочной модели для документа */
+html {
+  box-sizing: border-box;
+}
+
+/* убрал аутлайн при фокусе */
+/* *:focus {
+  outline-style: none;
+} */
+
+:root {
+  --primary-text-color: #757575;
+  --title-text-color: #212121;
+  --accent-color: #2196f3;
+  --white-color: #ffffff;
+  --icon-color: #afb1b8;
+  --alt-bg-color: #f5f4fa;
+  --secondary-bg-color: #2f303a;
+  --footer-link-color: rgba(255, 255, 255, 0.6);
+  --hero-gradient-color: rgba(47, 48, 58, 0.4);
+  --footer-icon-bg-color: rgba(255, 255, 255, 0.1);
+  --time-animation: 250ms;
+  --function-animation: cubic-bezier(0.4, 0, 0.2, 1);
+}
+body {
+  background-color: $white-color;
+  color: $primary-text-color;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  /* fixed-header compinsation */
+  padding-top: 80px;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+/* убираем подчеркивание у ссылок, включаем наследование от родителя*/
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+/* убираем "точечки", марджины и левый паддинг в списках */
+.list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+/* создаем контейнер для контента */
+.container {
+  width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+/* создаем флекс элементы,
+ даем возможность переноса элементов на другую строку */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: teal; */
+}
+/* header */
+.header {
+  /* fixed header */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  /* центрируем элементы в хедере по вертикали, 
+ добавляем паддинги уменьшены отступы на ширину border-top и border-bottom*/
+  align-items: center;
+  padding-top: 23px;
+  padding-bottom: 24px;
+
+  background-color: $white-color;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  /* добавлям линии согласно макета */
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #ececec;
+}
+/* центрируем элементы */
+.navigation,
+.contact {
+  align-items: center;
+}
+/* раскрасим логотип */
+.logo {
+  margin-right: 93px;
+
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
+.logo--header {
+  color: $title-text-color;
+}
+.logo--footer {
+  color: $white-color;
+}
+.logo--accent {
+  color: $accent-color;
+}
+/* навигация по сайту */
+.links li + li {
+  margin-left: 50px;
+}
+/* links <a> определяем цвет навигации*/
+.links__item {
+  position: relative;
+  color: $title-text-color;
+}
+/* расширяем зону активации ссылок в шапке для лучшего юзабилити */
+.links__item--big,
+.contact__item--big {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 6px 0;
+}
+
+/* подчеркивание активной страницы */
+/* .link::after  */
+.links__current::after {
+  position: absolute;
+
+  content: "";
+  width: 100%;
+  height: 4px;
+
+  bottom: -27px;
+  background: $accent-color;
+  border-radius: 2px;
+  opacity: 1;
+  /* transition: opacity $time-animation $function-animation; */
+}
+/* animation for links */
+.links__item,
+.contact__item {
+  transition: color $time-animation $function-animation;
+}
+/* header, footer links hover, focus цвет при наведении, фокусе  */
+.links__current,
+.links__item:hover,
+.links__item:focus,
+.contact__item:hover,
+.contact__item:focus {
+  color: $accent-color;
+}
+/* контактная информация */
+.contact {
+  margin-left: auto;
+}
+.contact li + li {
+  margin-left: 30px;
+}
+/* иконка почты */
+.contact__mail-icon {
+  align-self: center;
+  margin: 0 10px 0 0;
+  width: 16px;
+  height: 12px;
+  fill: currentColor;
+}
+/* иконка телефона */
+.contact__phone-icon {
+  align-self: center;
+  margin: 0 10px 0 0;
+  width: 10px;
+  height: 16px;
+  fill: currentColor;
+}
+/* Секция героя */
+/* центрируем текст в герое */
+.hero {
+  display: block;
+
+  text-align: center;
+  margin: 0 auto;
+  padding: 200px 0;
+  background-image: linear-gradient(
+      to right,
+      $hero-gradient-color,
+      $hero-gradient-color
+    ),
+    url("../img/hero-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* hero, footer заливка фона*/
+.hero,
+.footer {
+  background-color: $secondary-bg-color;
+}
+
+/* hero title заголовок. Убираем дефолтные марджины */
+.hero__title {
+  width: 600px;
+  margin: 0 auto 30px;
+
+  color: $white-color;
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.36;
+
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+/* hero button кнопка */
+.button {
+  box-sizing: border-box;
+  /* форма кнопки
+  min-width: 200px;
+  min-height: 50px; */
+  padding: 10px 32px;
+  border-style: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  color: $white-color;
+  background-color: $accent-color;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  text-align: center;
+
+  transition: background-color $time-animation $function-animation;
+}
+/* цвет при ховере, фокусе согласно макета */
+.button:hover,
+.button:focus {
+  background-color: #188ce8;
+}
+
+/* Our features 
+Наши особенности */
+/* создаем объекты флекс и активируем возможность переноса строки для них */
+.section--pudding {
+  padding: 94px 0;
+}
+.features,
+.features__item {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding-left: 0;
+  text-align: left;
+}
+/* отступы между секциями */
+// .features {
+//   padding: 94px 0;
+// }
+/* устанавливаем ширину контента для элементов */
+.features__item {
+  width: calc((100% - 30px * 3) / 4);
+}
+/* задаем отступы между элементами, марджины */
+.features__item:not(:nth-child(4n + 1)) {
+  margin-left: 30px;
+}
+
+/* features, our team, projects titles цвет текста заголовков*/
+.features__title,
+.our-team .title,
+.projects .title {
+  color: $title-text-color;
+}
+/* убираем марджины у абзацев */
+.features p {
+  margin: 0;
+}
+/* задаем шрифты, убираем дефолтные марджины  */
+.features .title {
+  margin: 0 0 10px 0;
+}
+.features .title,
+.whatwedo-item .title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+/* контейнеры иконок */
+.icon-holder {
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 30px;
+  width: 100%;
+  height: 120px;
+  background-color: $alt-bg-color;
+}
+/* размер иконок */
+.icon-static {
+  width: 70px;
+  height: 70px;
+}
+
+/* What-we-do 
+Чем мы занимаемся*/
+/* section title заголовок: шрифты, убираем дефолтные марджины*/
+.section-title {
+  margin: 0 auto 50px;
+  color: $title-text-color;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.17;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+/* делаем из спимков-элементов флекс элементы, 
+включаем перенос строки для них,
+убираем дефолтные значения марджина и паддинга*/
+.whatwedo-list,
+.our-team {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+/* отступ до следующей секции */
+.what-we-do {
+  padding-bottom: 94px;
+}
+/* устанавливаем ширину контента */
+.whatwedo-list li {
+  width: calc((100% - 30px * 2) / 3);
+}
+/* задаем отступы между элементами контента марджины*/
+.whatwedo-list li:not(:nth-child(3n + 1)) {
+  margin-left: 30px;
+}
+/* делаем контейнер релетив для позиционирования вложенного абзаца относительно себя */
+.whatwedo-item {
+  position: relative;
+}
+/* текст подписи картинки */
+.whatwedo-item .title {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+  padding: 27px 0;
+  text-align: center;
+  color: $white-color;
+  background: rgba(47, 48, 58, 0.8);
+}
+
+/* Our team */
+/* флекс элементы списку задали ранее */
+/* задаем шрифт и цвет секции */
+/* задаем отступ до секций соседей */
+.section.team {
+  padding: 94px 0;
+  background-color: $alt-bg-color;
+  font-size: 16px;
+  line-height: 1.19;
+  letter-spacing: 0.03em;
+}
+
+/* задаем ширину контента, тень карточке,и ориентацию текста */
+.our-team > li {
+  width: calc((100% - 30px * 3) / 4);
+  background-color: $white-color;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+  text-align: center;
+}
+/* задаем каждому не первому в строке элементу левый марджин */
+.our-team li:not(:nth-child(4n + 1)) {
+  margin-left: 30px;
+}
+/* our team title font,
+ задаем марджин до картинки и до абзаца*/
+.our-team .title {
+  margin: 30px 0 10px;
+
+  font-weight: 500;
+}
+/* отступ для формы карточки */
+.our-team p {
+  margin: 0 0 16px 0;
+}
+
+/* размер списка внутри карточки */
+.social {
+  width: calc(100% - 32px * 2);
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+/* размеры иконок в списке */
+.social .item,
+.div-follow .item {
+  width: 44px;
+  height: 44px;
+}
+
+/* общие настройки для иконок */
+.icon {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+/* цвет иконок социал */
+.social-link {
+  color: $icon-color;
+  background-color: $white-color;
+  transition: color $time-animation $function-animation,
+    background-color $time-animation $function-animation;
+}
+/* цвет иконок в футере */
+.follow-link {
+  color: $white-color;
+  background-color: $footer-icon-bg-color;
+  transition: background-color $time-animation $function-animation;
+}
+/* отступы для иконок-ссылок */
+.social .item:not(:nth-child(4n + 1)),
+.div-follow .item:not(:nth-child(4n + 1)) {
+  margin-left: 10px;
+}
+/* clients section */
+/* задаем размер иконок компании*/
+.clients .item {
+  margin: 0;
+  width: calc((100% - 30px * 5) / 6);
+  height: 90px;
+}
+/* определяем ссылки для иконок. размер, цвет границы */
+.clients-link {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  color: $icon-color;
+  border: 1px solid $icon-color;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+
+  transition: color $time-animation $function-animation,
+    border-color $time-animation $function-animation;
+}
+
+/* цвет иконок при ховере */
+.clients-link:hover {
+  border-color: $accent-color;
+  color: $accent-color;
+}
+/* расстояние между иконками-ссылками */
+.clients .item:not(:nth-child(6n + 1)) {
+  margin-left: 30px;
+}
+/* иконка компании */
+.ya-and-co {
+  width: 44px;
+  height: 49px;
+  fill: currentColor;
+}
+/* иконка компании */
+.company-tagline-here {
+  width: 40px;
+  height: 52px;
+  fill: currentColor;
+}
+/* иконка компании */
+.company {
+  width: 41px;
+  height: 43px;
+  fill: currentColor;
+}
+/* иконка компании */
+.foster-peters {
+  width: 80px;
+  height: 42px;
+  fill: currentColor;
+}
+/* иконка компании */
+.brand {
+  width: 59px;
+  height: 47px;
+  fill: currentColor;
+}
+/* иконка компании */
+.company-tag-line {
+  width: 88px;
+  height: 45px;
+  fill: currentColor;
+}
+
+/* footer */
+/* задаем отступы для футера */
+.footer {
+  padding: 60px 0;
+}
+.footer .container {
+  align-items: baseline;
+}
+/* делаем контент лого+адресс шириной на четверть от ширины страницы */
+.div-address {
+  display: block;
+  /* flex-wrap: wrap; */
+  width: calc((100% - 30px * 3) / 4);
+}
+/* убираем дефолтные отступы не полагаемся на наследование */
+.footer .logo {
+  display: block;
+  margin: 0 0 20px 0;
+}
+
+/* задаем ссылкам вертикальные отступы */
+.address a {
+  display: block;
+  margin: 9px 0 0;
+}
+/* размер блока соцсетей, подтягивание элементов вверх */
+.div-follow {
+  width: calc((100% - 30px * 3) / 4);
+  margin: 0 0 0 30px;
+  align-content: flex-start;
+}
+/* заголовок соцсетей*/
+.div-follow .title,
+.submit-footer .title {
+  margin: 0 0 20px 0;
+  /* padding-top: 12px; */
+  color: $white-color;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-transform: uppercase;
+}
+.submit-footer .title {
+  width: 100%;
+}
+/* цвет иконок при ховере */
+.follow-link:hover,
+.social-link:hover {
+  background-color: $accent-color;
+  color: $white-color;
+}
+/* иконки */
+.instagram,
+.linkedin {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+.twitter {
+  width: 23px;
+  height: 18px;
+  fill: currentColor;
+}
+.facebook {
+  width: 11px;
+  height: 21px;
+  fill: currentColor;
+}
+/* адресс */
+.address {
+  color: $white-color;
+  font-style: normal;
+}
+
+.street {
+  color: $white-color;
+  font-style: normal;
+}
+/* footer contacts links */
+.address a {
+  color: $footer-link-color;
+  font-style: normal;
+}
+/* submit-footer div */
+.submit-footer {
+  /* display: block; */
+  width: calc((100% - 30px) / 2);
+  margin-left: 30px;
+}
+.input-submit {
+  display: block;
+  width: 358px;
+  padding: 15px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* тень */
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  background-color: $secondary-bg-color;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all $time-animation $function-animation;
+}
+.button-submit {
+  width: 200px;
+  margin-left: 12px;
+  padding: 10px 0px 10px 29px;
+  background-image: url("../img/icon-telegram.svg");
+  background-repeat: no-repeat;
+  background-position: center right 28px;
+  text-align: left;
+}
+/* задаем фильтрбоксу вертикальные отступы 
+с центрированием элементов по горизонтали*/
+.container--forfilter {
+  padding: 94px 0 50px;
+}
+.filter {
+  justify-content: center;
+}
+/* filter button задаем шрифты и геометрию кнопок */
+.filter__button {
+  padding: 6px 22px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  color: $title-text-color;
+  background-color: $alt-bg-color;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.62;
+  letter-spacing: 0.03em;
+  /* animation */
+  transition: all $time-animation $function-animation;
+}
+/* задаем отступы для всех кроме последней кнопок*/
+.filter__item:not(:last-child) {
+  margin-right: 8px;
+}
+/* окраска при ховере фокусе */
+.filter__button:hover,
+.filter__button:focus {
+  color: $white-color;
+  background-color: $accent-color;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+/* projects list Лист с проектами*/
+.container.projects {
+  padding-bottom: 94px;
+}
+
+/* задаем ширину контента для 3 элементов в строке */
+.projects-list > li {
+  width: calc((100% - 30px * 2) / 3);
+}
+/* задаем границы ссылкам */
+.projects-link {
+  display: block;
+  width: 100%;
+  background-color: $white-color;
+  box-shadow: none;
+  transition: box-shadow $time-animation $function-animation;
+}
+/* тумба для картинок с описанием */
+.card-img {
+  position: relative;
+  overflow: hidden;
+}
+/* описание картинок спрятаное по умолчанию */
+.img-title {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  /* начальная позиция анимации */
+  transform: translateY(0%);
+  transition: transform $time-animation $function-animation;
+
+  height: 100%;
+  width: 100%;
+  padding: 64px 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+  background: rgba(33, 150, 243, 0.9);
+  color: #ffffff;
+}
+
+/* Выезжание текста на картинку*/
+.projects-link:hover .img-title,
+.projects-link:focus .img-title {
+  transform: translateY(-100%);
+}
+/* задаем тени при наведении фокусе */
+.projects-link:hover,
+.projects-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+/* задаем позицию текста, и отступы описанию карточки */
+.card-title {
+  margin: 0;
+  padding: 20px 24px;
+  text-align: left;
+  border: 1px solid #eeeeee;
+  border-top-style: none;
+}
+/* убираем дефолтные отступы */
+/* задаем отступ снизу заголовку карточки */
+.projects-link .title {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+/* убираем дефолтные отступы */
+.projects-link p {
+  margin: 0;
+}
+
+/* каждый не первый из трех элементов li будет отодвигаться от левого соседа на 30 пикселей */
+.projects li:not(:nth-child(3n + 1)) {
+  margin-left: 30px;
+  /* border: 1px solid tomato; */
+}
+/* каждый после третьего элемент li будет отодвигаться от верхней строки на 30 пикселей */
+.projects li:nth-child(n + 4) {
+  margin-top: 30px;
+}
+
+/* portfolio projects задаем основной шрифт списка проектов */
+.projects-list {
+  font-size: 16px;
+  line-height: 1.87;
+}
+/* projects title */
+.projects-list .title {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+/* modal window */
+/* hiden */
+.backdrop.is-hidden {
+  /* visibility: hidden; */
+  opacity: 0;
+  pointer-events: none;
+}
+/* background modal */
+.backdrop {
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  transition: opacity $time-animation $function-animation;
+}
+/* modal form */
+/* сама модальная форма */
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  padding: 40px;
+  width: 100%;
+  max-width: 528px;
+  height: 581px;
+  background-color: $white-color;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity $time-animation $function-animation,
+    transform $time-animation $function-animation;
+
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+/* Зазывалка модальной формы */
+.modal-title {
+  display: block;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  color: $title-text-color;
+}
+/* оформление лейбелов */
+.input-label {
+  position: relative;
+  display: block;
+  margin: 0 0 10px 0;
+  padding-top: 18px;
+  width: 100%;
+}
+/* оформление инпутов */
+.input-label input {
+  padding: 12px 0 12px 42px;
+  width: 100%;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  outline-color: transparent;
+  transition: all $time-animation $function-animation;
+}
+/* описания инпутов расположить над инпутами */
+.input-title {
+  position: absolute;
+  display: block;
+
+  left: 0;
+  top: 0;
+  margin: 0;
+}
+/* спрятать элемент чекбокс */
+.input-hidden {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+/* иконки для инпутов */
+.icon-input,
+.icon-button {
+  position: absolute;
+  display: block;
+  width: 18px;
+  height: 18px;
+  left: 12px;
+  top: 50%;
+
+  /* fill: $title-text-color; */
+  transition: fill $time-animation $function-animation;
+}
+/* focus animation icon input */
+.input-submit:focus,
+.input-label input:focus,
+.textarea:focus {
+  border-color: $accent-color;
+  outline-color: $accent-color;
+}
+.input-label input:focus + .icon-input {
+  fill: $accent-color;
+}
+.textarea-label {
+  position: relative;
+  display: block;
+  margin: 0 0 10px 0;
+  padding-top: 18px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+/* текст коментариев */
+.textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  resize: none;
+  outline-color: transparent;
+  transition: all $time-animation $function-animation;
+}
+/* элемент с чекбокcом и лейбелом к ниму */
+.checkbox {
+  position: relative;
+  width: calc(100% - 23px);
+  padding: 0;
+  margin: 0 11px 30px 12px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+/* стиль "нечекнутый чекбокс" */
+/* .icon-checkbox */
+.checkbox::after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 50%;
+  width: 16px;
+  height: 15px;
+  /* margin-right: 8px; */
+  transform: translateY(-50%);
+  border: 2px solid $title-text-color;
+  border-radius: 4px;
+}
+/* при чеке на чекбоксе применить стили "чекнутый чекбокс" */
+.input-hidden:checked + .checkbox::after {
+  background-image: url("../img/checkbox-checked.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-color: $accent-color;
+  border-color: $accent-color;
+}
+
+/* .polic-title {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+} */
+.checkbox-license {
+  color: $accent-color;
+  text-decoration: underline;
+}
+/* window animation */
+.backdrop.is-hidden .modal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+/* modal window button exit */
+.button-modal {
+  position: absolute;
+  top: 8px;
+  left: calc(100% - 8px);
+  transform: translateX(-100%);
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+/* X - button elements */
+.icon-button {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.button-modal:hover .icon-button {
+  fill: $accent-color;
+}
+/* .button-modal::after {
+  content: "";
+  display: block;
+  align-self: center;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  margin: 0;
+  width: 50%;
+  height: 3px;
+  background-color: #000;
+  transform: translateX(50%) rotate(45deg);
+  transition: transform $time-animation $function-animation;
+}
+.button-modal::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  margin: 0;
+  width: 50%;
+  height: 3px;
+  background-color: #000;
+  transform: translateX(50%) rotateZ(-45deg);
+  transition: transform $time-animation $function-animation;
+}*/
+/* X animation */
+/* .button-modal:hover::after,
+.button-modal:hover::before {
+  background-color: $accent-color;
+}  */
+/* submit button */
+.modal-submit-button {
+  align-self: center;
+}
