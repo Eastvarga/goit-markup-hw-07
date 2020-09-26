@@ -1,0 +1,30 @@
+// Социальные сети
+/* размер списка внутри карточки */
+.social {
+  width: calc(100% - 32px * 2);
+  margin: 0 auto;
+  padding-bottom: 30px;
+  /* цвет иконок социал */
+  &__link {
+    color: $icon-color;
+    background-color: $white-color;
+    transition: color $time-animation $function-animation,
+      background-color $time-animation $function-animation;
+    &:hover {
+      @extend %hover-color;
+    }
+  }
+  /* иконки */
+  &__icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+  &__item {
+    width: 44px;
+    height: 44px;
+    &:not(:nth-child(4n + 1)) {
+      @extend %social-margin;
+    }
+  }
+}

@@ -150,42 +150,10 @@ summary {
   display: list-item;
 }
 
-/*
- палитра макета
- Основной цвет текста #757575;
- вторичный цвет #212121; 
- цвет акцент #2196F3;
- второй цвет текста #FFFFFF;
- цвет футер ссылки rgba(255, 255, 255, 0.6);
- цвет иконок компании #AFB1B8;
- вторичный цвет фона #2F303A;
- третий цвет фона #F5F4FA;
- цвет фона градиента героя rgba(47, 48, 58, 0.4)
- 
-*/
 /* устанавливаем тип блочной модели для документа */
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-/* убрал аутлайн при фокусе */
-/* *:focus {
-  outline-style: none;
-} */
-:root {
-  --primary-text-color: #757575;
-  --title-text-color: #212121;
-  --accent-color: #2196f3;
-  --white-color: #ffffff;
-  --icon-color: #afb1b8;
-  --alt-bg-color: #f5f4fa;
-  --secondary-bg-color: #2f303a;
-  --footer-link-color: rgba(255, 255, 255, 0.6);
-  --hero-gradient-color: rgba(47, 48, 58, 0.4);
-  --footer-icon-bg-color: rgba(255, 255, 255, 0.1);
-  --time-animation: 250ms;
-  --function-animation: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -196,7 +164,6 @@ body {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
-  /* fixed-header compinsation */
   padding-top: 80px;
 }
 
@@ -212,6 +179,13 @@ a {
   text-decoration: none;
 }
 
+/* убираем "точечки", марджины и левый паддинг в списках */
+.list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -223,11 +197,164 @@ a {
   overflow: hidden;
 }
 
-/* убираем "точечки", марджины и левый паддинг в списках */
-.list {
-  list-style: none;
+/* hero, footer заливка фона*/
+.hero, .footer {
+  background-color: #2f303a;
+}
+
+.features__title, .whatwedo__text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* общие настройки для иконок */
+.icon {
   margin: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* features, our team, projects titles цвет текста заголовков*/
+.links__item, .features__title, .team__title, .projects__title {
+  color: #212121;
+}
+
+/* hero button кнопка */
+.button {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px 32px;
+  border-style: none;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: #2196f3;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  text-align: center;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover, .button:focus {
+  background-color: #188ce8;
+}
+
+.button--submit {
+  width: 200px;
+  margin-left: 12px;
+  padding: 10px 0px 10px 29px;
+  background-image: url("../img/icon-telegram.svg");
+  background-repeat: no-repeat;
+  background-position: center right 28px;
+  text-align: left;
+}
+
+.follow__title, .submit__title {
+  margin: 0 0 20px 0;
+  /* padding-top: 12px; */
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.links__item--big, .contact__item--big {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0;
+  padding: 6px 0;
+}
+
+.links__item, .contact__item, .address__link {
+  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.links__item.links__item--current, .links__item:hover, .links__item:focus, .contact__item:hover, .contact__item:focus, .address__link:hover, .address__link:focus {
+  color: #2196f3;
+}
+
+.modal__icon, .close__icon {
+  position: absolute;
+  display: block;
+  width: 18px;
+  height: 18px;
+  -webkit-transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* focus animation icon input */
+.submit__input:focus, .modal__input:focus, .modal__comments:focus {
+  border-color: #2196f3;
+  outline-color: #2196f3;
+}
+
+/* отступы для иконок-ссылок */
+.social__item:not(:nth-child(4n + 1)), .follow__item:not(:nth-child(4n + 1)) {
+  margin-left: 10px;
+}
+
+/* цвет иконок при ховере */
+.social__link:hover, .follow__link:hover {
+  background-color: #2196f3;
+  color: #ffffff;
+}
+
+.whatwedo, .team {
+  margin-top: 0;
+  margin-bottom: 0;
   padding-left: 0;
+}
+
+.section {
+  /* section title заголовок: шрифты, убираем дефолтные марджины*/
+  /* отступ до следующей секции */
+}
+
+.section__title {
+  margin: 0 auto 50px;
+  color: #212121;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.17;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.section--whatwedo {
+  padding-bottom: 94px;
+}
+
+.section--team {
+  padding: 94px 0;
+  background-color: #f5f4fa;
+  font-size: 16px;
+  line-height: 1.19;
+  letter-spacing: 0.03em;
+}
+
+.section--pudding {
+  padding: 94px 0;
 }
 
 /* создаем контейнер для контента */
@@ -235,6 +362,20 @@ a {
   width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
+}
+
+.container--footer {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.container--forfilter {
+  padding: 94px 0 50px;
+}
+
+.container--forprojects {
+  padding-bottom: 94px;
 }
 
 /* создаем флекс элементы,
@@ -272,12 +413,64 @@ a {
   border-bottom: 1px solid #ececec;
 }
 
+/* навигация по сайту */
+.links li + li {
+  margin-left: 50px;
+}
+
+.links__item--current {
+  position: relative;
+}
+
+.links__item--current::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4px;
+  bottom: -27px;
+  background: #2196f3;
+  border-radius: 2px;
+  opacity: 1;
+  /* transition: opacity $time-animation $function-animation; */
+}
+
 /* центрируем элементы */
 .navigation,
 .contact {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.contact {
+  margin-left: auto;
+  /* расширяем зону активации ссылок в шапке для лучшего юзабилити */
+  /* иконка почты */
+  /* иконка телефона */
+}
+
+.contact li + li {
+  margin-left: 30px;
+}
+
+.contact__mail-icon {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 0 10px 0 0;
+  width: 16px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.contact__phone-icon {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 0 10px 0 0;
+  width: 10px;
+  height: 16px;
+  fill: currentColor;
 }
 
 /* раскрасим логотип */
@@ -295,103 +488,13 @@ a {
 }
 
 .logo--footer {
-  color: #ffffff;
-}
-
-/* убираем дефолтные отступы не полагаемся на наследование */
-.logo--footer {
   display: block;
   margin: 0 0 20px 0;
+  color: #ffffff;
 }
 
 .logo--accent {
   color: #2196f3;
-}
-
-/* навигация по сайту */
-.links li + li {
-  margin-left: 50px;
-}
-
-/* links <a> определяем цвет навигации*/
-.links__item--current {
-  position: relative;
-}
-
-/* расширяем зону активации ссылок в шапке для лучшего юзабилити */
-.links__item--big,
-.contact__item--big {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin: 0;
-  padding: 6px 0;
-}
-
-/* подчеркивание активной страницы */
-/* .link::after  */
-.links__item--current::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 4px;
-  bottom: -27px;
-  background: #2196f3;
-  border-radius: 2px;
-  opacity: 1;
-  /* transition: opacity $time-animation $function-animation; */
-}
-
-/* animation for links */
-.links__item,
-.contact__item,
-.address__link {
-  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* header, footer links hover, focus цвет при наведении, фокусе  */
-.links__item--current,
-.links__item:hover,
-.links__item:focus,
-.contact__item:hover,
-.contact__item:focus,
-.address__link:hover,
-.address__link:focus {
-  color: #2196f3;
-}
-
-/* контактная информация */
-.contact {
-  margin-left: auto;
-}
-
-.contact li + li {
-  margin-left: 30px;
-}
-
-/* иконка почты */
-.contact__mail-icon {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  margin: 0 10px 0 0;
-  width: 16px;
-  height: 12px;
-  fill: currentColor;
-}
-
-/* иконка телефона */
-.contact__phone-icon {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  margin: 0 10px 0 0;
-  width: 10px;
-  height: 16px;
-  fill: currentColor;
 }
 
 /* Секция героя */
@@ -407,13 +510,6 @@ a {
   background-repeat: no-repeat;
 }
 
-/* hero, footer заливка фона*/
-.hero,
-.footer {
-  background-color: #2f303a;
-}
-
-/* hero title заголовок. Убираем дефолтные марджины */
 .hero__title {
   width: 600px;
   margin: 0 auto 30px;
@@ -425,88 +521,37 @@ a {
   text-transform: uppercase;
 }
 
-/* hero button кнопка */
-.button {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  /* форма кнопки
-  min-width: 200px;
-  min-height: 50px; */
-  padding: 10px 32px;
-  border-style: none;
-  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  color: #ffffff;
-  background-color: #2196f3;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
-  text-align: center;
-  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* цвет при ховере, фокусе согласно макета */
-.button:hover,
-.button:focus {
-  background-color: #188ce8;
-}
-
 /* Our features 
 Наши особенности */
 /* создаем объекты флекс и активируем возможность переноса строки для них */
-.section--pudding {
-  padding: 94px 0;
-}
-
-.features,
-.features__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+.features {
   margin: 0;
   padding-left: 0;
   text-align: left;
+  /* устанавливаем ширину контента для элементов */
+  /* задаем шрифты, убираем дефолтные марджины  */
+  /* контейнеры иконок */
+  /* размер иконок */
+  /* убираем марджины у абзацев */
 }
 
-/* отступы между секциями */
-/* устанавливаем ширину контента для элементов */
 .features__item {
+  display: block;
+  margin: 0;
+  padding-left: 0;
+  text-align: left;
   width: calc((100% - 30px * 3) / 4);
+  /* задаем отступы между элементами, марджины */
 }
 
-/* задаем отступы между элементами, марджины */
 .features__item:not(:nth-child(4n + 1)) {
   margin-left: 30px;
 }
 
-/* features, our team, projects titles цвет текста заголовков*/
-.features__title,
-.team__title,
-.projects__title,
-.links__item {
-  color: #212121;
-}
-
-/* задаем шрифты, убираем дефолтные марджины  */
 .features__title {
   margin: 0 0 10px 0;
 }
 
-.features__title,
-.whatwedo__text {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-/* контейнеры иконок */
 .features__holder {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -520,67 +565,39 @@ a {
   background-color: #f5f4fa;
 }
 
-/* размер иконок */
 .features__icon {
   width: 70px;
   height: 70px;
 }
 
-/* убираем марджины у абзацев */
 .features__text {
   margin: 0;
 }
 
 /* What-we-do 
 Чем мы занимаемся*/
-/* section title заголовок: шрифты, убираем дефолтные марджины*/
-/* отступ до следующей секции */
-.section--whatwedo,
-.container--forprojects {
-  padding-bottom: 94px;
-}
-
-.section__title {
-  margin: 0 auto 50px;
-  color: #212121;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.17;
-  text-align: center;
-  letter-spacing: 0.03em;
-}
-
 /* делаем из спимков-элементов флекс элементы, 
 включаем перенос строки для них,
 убираем дефолтные значения марджина и паддинга*/
-.whatwedo,
-.team {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
+.whatwedo {
+  /* устанавливаем ширину контента */
+  /* делаем контейнер релетив для позиционирования вложенного абзаца относительно себя */
+  /* текст подписи картинки */
 }
 
-/* устанавливаем ширину контента */
 .whatwedo__item {
   width: calc((100% - 30px * 2) / 3);
+  /* задаем отступы между элементами контента марджины*/
 }
 
-/* задаем отступы между элементами контента марджины*/
 .whatwedo__item:not(:nth-child(3n + 1)) {
   margin-left: 30px;
 }
 
-/* делаем контейнер релетив для позиционирования вложенного абзаца относительно себя */
 .whatwedo__holder {
   position: relative;
 }
 
-/* текст подписи картинки */
 .whatwedo__text {
   position: absolute;
   left: 0;
@@ -593,74 +610,15 @@ a {
   background: rgba(47, 48, 58, 0.8);
 }
 
-/* Our team */
-/* флекс элементы списку задали ранее */
-/* задаем шрифт и цвет секции */
-/* задаем отступ до секций соседей */
-.section--team {
-  padding: 94px 0;
-  background-color: #f5f4fa;
-  font-size: 16px;
-  line-height: 1.19;
-  letter-spacing: 0.03em;
-}
-
-/* задаем ширину контента, тень карточке,и ориентацию текста */
-.team__item {
-  width: calc((100% - 30px * 3) / 4);
-  background-color: #ffffff;
-  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 0px 0px 4px 4px;
-  text-align: center;
-}
-
-/* задаем каждому не первому в строке элементу левый марджин */
-.team__item:not(:nth-child(4n + 1)) {
-  margin-left: 30px;
-}
-
-/* our team title font,
- задаем марджин до картинки и до абзаца*/
-.team__title {
-  margin: 30px 0 10px;
-  font-weight: 500;
-}
-
-/* отступ для формы карточки */
-.team__text {
-  margin: 0 0 16px 0;
-}
-
 /* размер списка внутри карточки */
 .social {
   width: calc(100% - 32px * 2);
   margin: 0 auto;
   padding-bottom: 30px;
+  /* цвет иконок социал */
+  /* иконки */
 }
 
-/* размеры иконок в списке */
-.social__item,
-.follow__item {
-  width: 44px;
-  height: 44px;
-}
-
-/* общие настройки для иконок */
-.icon {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-/* цвет иконок социал */
 .social__link {
   color: #afb1b8;
   background-color: #ffffff;
@@ -668,33 +626,74 @@ a {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* иконки */
 .social__icon {
   width: 20px;
   height: 20px;
   fill: currentColor;
 }
 
-/* отступы для иконок-ссылок */
-.social__item:not(:nth-child(4n + 1)),
-.follow__item:not(:nth-child(4n + 1)) {
-  margin-left: 10px;
+.social__item {
+  width: 44px;
+  height: 44px;
+}
+
+/* Our team */
+/* флекс элементы списку задали ранее */
+/* задаем шрифт и цвет секции */
+/* задаем отступ до секций соседей */
+/* задаем ширину контента, тень карточке,и ориентацию текста */
+.team {
+  /* our team title font,
+ задаем марджин до картинки и до абзаца*/
+  /* отступ для формы карточки */
+}
+
+.team__item {
+  width: calc((100% - 30px * 3) / 4);
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
+  text-align: center;
+  /* задаем каждому не первому в строке элементу левый марджин */
+}
+
+.team__item:not(:nth-child(4n + 1)) {
+  margin-left: 30px;
+}
+
+.team__title {
+  margin: 30px 0 10px;
+  font-weight: 500;
+}
+
+.team__text {
+  margin: 0 0 16px 0;
 }
 
 /* clients section */
 /* задаем размер иконок компании*/
+.clients {
+  /* определяем ссылки для иконок. размер, цвет границы */
+  /* иконка компании */
+  /* иконка компании */
+  /* иконка компании */
+  /* иконка компании */
+  /* иконка компании */
+  /* иконка компании */
+}
+
 .clients__item {
   margin: 0;
   width: calc((100% - 30px * 5) / 6);
   height: 90px;
+  /* расстояние между иконками-ссылками */
 }
 
-/* расстояние между иконками-ссылками */
 .clients__item:not(:nth-child(6n + 1)) {
   margin-left: 30px;
 }
 
-/* определяем ссылки для иконок. размер, цвет границы */
 .clients__link {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -713,50 +712,44 @@ a {
           align-items: center;
   -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* цвет иконок при ховере */
 }
 
-/* цвет иконок при ховере */
 .clients__link:hover {
   border-color: #2196f3;
   color: #2196f3;
 }
 
-/* иконка компании */
 .clients__ya-and-co {
   width: 44px;
   height: 49px;
   fill: currentColor;
 }
 
-/* иконка компании */
 .clients__company-tagline-here {
   width: 40px;
   height: 52px;
   fill: currentColor;
 }
 
-/* иконка компании */
 .clients__company {
   width: 41px;
   height: 43px;
   fill: currentColor;
 }
 
-/* иконка компании */
 .clients__foster-peters {
   width: 80px;
   height: 42px;
   fill: currentColor;
 }
 
-/* иконка компании */
 .clients__brand {
   width: 59px;
   height: 47px;
   fill: currentColor;
 }
 
-/* иконка компании */
 .clients__company-tag-line {
   width: 88px;
   height: 45px;
@@ -770,17 +763,13 @@ a {
   padding: 60px 0;
 }
 
-.container--footer {
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-}
-
 /* адресс */
 /* делаем контент лого+адресс шириной на четверть от ширины страницы */
 .address {
   display: block;
   width: calc((100% - 30px * 3) / 4);
+  /* footer contacts links */
+  /* задаем ссылкам вертикальные отступы */
 }
 
 .address__holder {
@@ -793,8 +782,6 @@ a {
   font-style: normal;
 }
 
-/* footer contacts links */
-/* задаем ссылкам вертикальные отступы */
 .address__link {
   color: rgba(255, 255, 255, 0.6);
   font-style: normal;
@@ -805,8 +792,6 @@ a {
 .follow {
   width: calc((100% - 30px * 3) / 4);
   margin: 0 0 0 30px;
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
 }
 
 .follow__link {
@@ -814,33 +799,17 @@ a {
   background-color: rgba(255, 255, 255, 0.1);
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* цвет иконок при ховере */
 }
 
-/* цвет иконок при ховере */
-.follow__link:hover,
-.social__link:hover {
-  background-color: #2196f3;
-  color: #ffffff;
+.follow__item {
+  width: 44px;
+  height: 44px;
 }
 
-/* размер блока соцсетей, подтягивание элементов вверх */
 /* заголовок соцсетей*/
-.follow__title,
-.submit__title {
-  margin: 0 0 20px 0;
-  /* padding-top: 12px; */
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.03em;
-  text-align: left;
-  text-transform: uppercase;
-}
-
 /* submit-footer div */
 .submit {
-  /* display: block; */
   width: calc((100% - 30px) / 2);
   margin-left: 30px;
 }
@@ -864,34 +833,20 @@ a {
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.button--submit {
-  width: 200px;
-  margin-left: 12px;
-  padding: 10px 0px 10px 29px;
-  background-image: url("../img/icon-telegram.svg");
-  background-repeat: no-repeat;
-  background-position: center right 28px;
-  text-align: left;
-}
-
 /* задаем фильтрбоксу вертикальные отступы 
 с центрированием элементов по горизонтали*/
-.container--forfilter {
-  padding: 94px 0 50px;
-}
-
 .filter {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  /* задаем отступы для всех кроме последней кнопок*/
+  /* filter button задаем шрифты и геометрию кнопок */
 }
 
-/* задаем отступы для всех кроме последней кнопок*/
 .filter__item:not(:last-child) {
   margin-right: 8px;
 }
 
-/* filter button задаем шрифты и геометрию кнопок */
 .filter__button {
   padding: 6px 22px;
   border: 1px solid transparent;
@@ -907,30 +862,40 @@ a {
   /* animation */
   -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* окраска при ховере фокусе */
 }
 
-/* окраска при ховере фокусе */
-.filter__button:hover,
-.filter__button:focus {
+.filter__button:hover, .filter__button:focus {
   color: #ffffff;
   background-color: #2196f3;
   -webkit-box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
-/* projects list Лист с проектами*/
 /* portfolio projects задаем основной шрифт списка проектов */
 .projects {
   font-size: 16px;
   line-height: 1.87;
+  /* задаем ширину контента для 3 элементов в строке */
+  /* задаем границы ссылкам */
+  /* задаем позицию текста, и отступы описанию карточки */
+  /* projects title */
 }
 
-/* задаем ширину контента для 3 элементов в строке */
 .projects__item {
   width: calc((100% - 30px * 2) / 3);
+  /* каждый не первый из трех элементов li будет отодвигаться от левого соседа на 30 пикселей */
+  /* каждый после третьего элемент li будет отодвигаться от верхней строки на 30 пикселей */
 }
 
-/* задаем границы ссылкам */
+.projects__item:not(:nth-child(3n + 1)) {
+  margin-left: 30px;
+}
+
+.projects__item:nth-child(n + 4) {
+  margin-top: 30px;
+}
+
 .projects__link {
   display: block;
   width: 100%;
@@ -941,15 +906,50 @@ a {
   transition: -webkit-box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* Выезжание текста на картинку*/
+  /* задаем тени при наведении фокусе */
+  /* убираем дефолтные отступы */
+}
+
+.projects__link:hover .thumbnail__title,
+.projects__link:focus .thumbnail__title {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+.projects__link:hover, .projects__link:focus {
+  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.projects__link p {
+  margin: 0;
+}
+
+.projects__description {
+  margin: 0;
+  padding: 20px 24px;
+  text-align: left;
+  border: 1px solid #eeeeee;
+  border-top-style: none;
+}
+
+.projects__title {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
 }
 
 /* тумба для картинок с описанием */
 .thumbnail {
   position: relative;
   overflow: hidden;
+  /* описание картинок спрятаное по умолчанию */
 }
 
-/* описание картинок спрятаное по умолчанию */
 .thumbnail__title {
   position: absolute;
   left: 0;
@@ -974,65 +974,8 @@ a {
   color: #ffffff;
 }
 
-/* Выезжание текста на картинку*/
-.projects__link:hover .thumbnail__title,
-.projects__link:focus .thumbnail__title {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-}
-
-/* задаем тени при наведении фокусе */
-.projects__link:hover,
-.projects__link:focus {
-  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
-/* задаем позицию текста, и отступы описанию карточки */
-.projects__description {
-  margin: 0;
-  padding: 20px 24px;
-  text-align: left;
-  border: 1px solid #eeeeee;
-  border-top-style: none;
-}
-
-/* убираем дефолтные отступы */
-/* задаем отступ снизу заголовку карточки */
-/* projects title */
-.projects__title {
-  margin-top: 0;
-  margin-bottom: 4px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 2;
-  letter-spacing: 0.06em;
-  color: #212121;
-}
-
-/* убираем дефолтные отступы */
-.projects__link p {
-  margin: 0;
-}
-
-/* каждый не первый из трех элементов li будет отодвигаться от левого соседа на 30 пикселей */
-.projects__item:not(:nth-child(3n + 1)) {
-  margin-left: 30px;
-}
-
-/* каждый после третьего элемент li будет отодвигаться от верхней строки на 30 пикселей */
-.projects__item:nth-child(n + 4) {
-  margin-top: 30px;
-}
-
 /* modal window */
 /* hiden */
-.backdrop.is-hidden {
-  /* visibility: hidden; */
-  opacity: 0;
-  pointer-events: none;
-}
-
 /* background modal */
 .backdrop {
   position: fixed;
@@ -1045,6 +988,19 @@ a {
   opacity: 1;
   -webkit-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* window animation */
+}
+
+.backdrop.is-hidden .modal {
+  opacity: 0;
+  -webkit-transform: translate(-50%, -50%) scale(0.5);
+          transform: translate(-50%, -50%) scale(0.5);
+}
+
+.backdrop.is-hidden {
+  /* visibility: hidden; */
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* modal form */
@@ -1072,9 +1028,15 @@ a {
   line-height: 1.17;
   letter-spacing: 0.01em;
   text-align: center;
+  /* Зазывалка модальной формы */
+  /* описания инпутов расположить над инпутами */
+  /* оформление лейбелов */
+  /* оформление инпутов */
+  /* текст коментариев */
+  /* элемент с чекбокcом и лейбелом к ниму */
+  /* при чеке на чекбоксе применить стили "чекнутый чекбокс" */
 }
 
-/* Зазывалка модальной формы */
 .modal__title {
   display: block;
   margin: 0 0 12px 0;
@@ -1085,7 +1047,6 @@ a {
   color: #212121;
 }
 
-/* описания инпутов расположить над инпутами */
 .modal__text {
   position: absolute;
   display: block;
@@ -1094,7 +1055,6 @@ a {
   margin: 0;
 }
 
-/* оформление лейбелов */
 .modal__label {
   position: relative;
   display: block;
@@ -1103,7 +1063,6 @@ a {
   width: 100%;
 }
 
-/* оформление инпутов */
 .modal__input {
   padding: 12px 0 12px 42px;
   width: 100%;
@@ -1115,42 +1074,22 @@ a {
   outline-color: transparent;
   -webkit-transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* спрятать элемент чекбокс */
 }
 
-/* спрятать элемент чекбокс */
 .modal__input--hidden {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
-/* иконки для инпутов */
-.modal__icon,
-.close__icon {
-  position: absolute;
-  display: block;
-  width: 18px;
-  height: 18px;
-  /* fill: $title-text-color; */
-  -webkit-transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.modal__input:focus + .modal__icon {
+  fill: #2196f3;
 }
 
 .modal__icon {
   left: 12px;
   top: 50%;
-}
-
-/* focus animation icon input */
-.submit__input:focus,
-.modal__input:focus,
-.modal__comments:focus {
-  border-color: #2196f3;
-  outline-color: #2196f3;
-}
-
-.modal__input:focus + .modal__icon {
-  fill: #2196f3;
 }
 
 .modal__textarea {
@@ -1162,7 +1101,6 @@ a {
   margin-bottom: 20px;
 }
 
-/* текст коментариев */
 .modal__comments {
   width: 100%;
   height: 120px;
@@ -1175,7 +1113,6 @@ a {
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* элемент с чекбокcом и лейбелом к ниму */
 .modal__checkbox {
   position: relative;
   width: calc(100% - 23px);
@@ -1193,10 +1130,10 @@ a {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+  /* стиль "нечекнутый чекбокс" */
+  /* .icon-checkbox */
 }
 
-/* стиль "нечекнутый чекбокс" */
-/* .icon-checkbox */
 .modal__checkbox::after {
   content: "";
   position: absolute;
@@ -1212,7 +1149,6 @@ a {
   border-radius: 4px;
 }
 
-/* при чеке на чекбоксе применить стили "чекнутый чекбокс" */
 .modal__input--hidden:checked + .modal__checkbox::after {
   background-image: url("../img/checkbox-checked.svg");
   background-size: contain;
@@ -1225,13 +1161,6 @@ a {
 .modal__policy {
   color: #2196f3;
   text-decoration: underline;
-}
-
-/* window animation */
-.backdrop.is-hidden .modal {
-  opacity: 0;
-  -webkit-transform: translate(-50%, -50%) scale(0.5);
-          transform: translate(-50%, -50%) scale(0.5);
 }
 
 /* modal window button exit */
@@ -1249,7 +1178,6 @@ a {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* X - button elements */
 .close__icon {
   top: 50%;
   left: 50%;
@@ -1259,12 +1187,5 @@ a {
 
 .close:hover .close__icon {
   fill: #2196f3;
-}
-
-/* submit button */
-.modal__button--submit {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
 }
 /*# sourceMappingURL=main.css.map */

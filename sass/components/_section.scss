@@ -1,0 +1,26 @@
+.section {
+  /* section title заголовок: шрифты, убираем дефолтные марджины*/
+  &__title {
+    margin: 0 auto 50px;
+    color: $title-text-color;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.17;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+  /* отступ до следующей секции */
+  &--whatwedo {
+    padding-bottom: 94px;
+  }
+  &--team {
+    padding: 94px 0;
+    background-color: $alt-bg-color;
+    font-size: 16px;
+    line-height: 1.19;
+    letter-spacing: 0.03em;
+  }
+  &--pudding {
+    padding: 94px 0;
+  }
+}

@@ -1,0 +1,90 @@
+/* footer */
+/* задаем отступы для футера */
+/* цвет иконок в футере */
+
+.footer {
+  @extend %main-background;
+  padding: 60px 0;
+}
+/* адресс */
+/* делаем контент лого+адресс шириной на четверть от ширины страницы */
+.address {
+  display: block;
+  width: calc((100% - 30px * 3) / 4);
+  &__holder {
+    color: $white-color;
+    font-style: normal;
+  }
+  &__street {
+    color: $white-color;
+    font-style: normal;
+  }
+  /* footer contacts links */
+  /* задаем ссылкам вертикальные отступы */
+  &__link {
+    color: $footer-link-color;
+    font-style: normal;
+    display: block;
+    margin: 9px 0 0;
+    @extend %color-animation;
+
+    &:hover,
+    &:focus {
+      @extend %accent-color;
+    }
+  }
+}
+
+// кусок содержащий ссылки на социалки
+.follow {
+  width: calc((100% - 30px * 3) / 4);
+  margin: 0 0 0 30px;
+  &__link {
+    color: $white-color;
+    background-color: $footer-icon-bg-color;
+    transition: background-color $time-animation $function-animation;
+    /* цвет иконок при ховере */
+    &:hover {
+      @extend %hover-color;
+    }
+  }
+  &__item {
+    width: 44px;
+    height: 44px;
+    &:not(:nth-child(4n + 1)) {
+      @extend %social-margin;
+    }
+  }
+  &__title {
+    @extend %footer-title;
+  }
+}
+
+/* заголовок соцсетей*/
+/* submit-footer div */
+.submit {
+  width: calc((100% - 30px) / 2);
+  margin-left: 30px;
+  &__title {
+    @extend %footer-title;
+  }
+  &__input {
+    display: block;
+    width: 358px;
+    padding: 15px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* тень */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+    border-radius: 4px;
+    background-color: $secondary-bg-color;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.25;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all $time-animation $function-animation;
+    &:focus {
+      @extend %modal-focus;
+    }
+  }
+}

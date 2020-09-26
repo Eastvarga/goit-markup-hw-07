@@ -1,0 +1,7 @@
+/* создаем флекс элементы,
+ даем возможность переноса элементов на другую строку */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  /* background-color: teal; */
+}

@@ -1,0 +1,15 @@
+/* создаем контейнер для контента */
+.container {
+  width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  &--footer {
+    align-items: baseline;
+  }
+  &--forfilter {
+    padding: 94px 0 50px;
+  }
+  &--forprojects {
+    padding-bottom: 94px;
+  }
+}
