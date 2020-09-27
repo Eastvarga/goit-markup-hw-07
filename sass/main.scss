@@ -1,21 +1,12 @@
 @import "./utils/variables";
+@import "./utils/placeholders";
 @import "./base/normalize";
-@import "./utils/preset";
-@import "./utils/visuallihiden";
-@import "./utils/herobackground";
-@import "./utils/featuresfont";
-@import "./utils/icon";
-@import "./utils/title-color";
-@import "./utils/button";
-@import "./utils/footer-title";
-@import "./utils/big-links";
-@import "./utils/color-animation";
-@import "./utils/accent-color";
-@import "./utils/modal-icon";
-@import "./utils/modal-focus";
-@import "./utils/social-distance";
-@import "./utils/social-hover";
-@import "./utils/lists-margins";
+@import "./components/preset";
+@import "./components/visuallihiden";
+
+@import "./components/icon";
+@import "./components/button";
+
 @import "./components/section";
 @import "./components/container";
 @import "./components/flex";

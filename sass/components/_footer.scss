@@ -3,8 +3,10 @@
 /* цвет иконок в футере */
 
 .footer {
-  @extend %main-background;
+  background-color: $secondary-bg-color;
+  width: 1600px;
   padding: 60px 0;
+  margin: 0 auto;
 }
 /* адресс */
 /* делаем контент лого+адресс шириной на четверть от ширины страницы */

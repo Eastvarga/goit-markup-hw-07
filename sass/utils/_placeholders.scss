@@ -1,0 +1,66 @@
+%accent-color {
+  color: $accent-color;
+}
+
+%big-paddings {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 6px 0;
+}
+
+%color-animation {
+  transition: color $time-animation $function-animation;
+}
+
+%features-font {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+%footer-title {
+  margin: 0 0 20px 0;
+  /* padding-top: 12px; */
+  color: $white-color;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-transform: uppercase;
+}
+%list-margins {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+/* focus animation icon input */
+%modal-focus {
+  border-color: $accent-color;
+  outline-color: $accent-color;
+}
+%modal-icons {
+  position: absolute;
+  display: block;
+  width: 18px;
+  height: 18px;
+  transition: fill $time-animation $function-animation;
+}
+
+/* отступы для иконок-ссылок */
+%social-margin {
+  margin-left: 10px;
+}
+/* цвет иконок при ховере */
+%hover-color {
+  background-color: $accent-color;
+  color: $white-color;
+}
+/* features, our team, projects titles цвет текста заголовков*/
+%title-color {
+  color: $title-text-color;
+}
+
