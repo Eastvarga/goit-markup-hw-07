@@ -1,27 +1,14 @@
 @import "./utils/variables";
 @import "./utils/placeholders";
 @import "./base/normalize";
-@import "./components/preset";
-@import "./components/visuallihiden";
-
-@import "./components/icon";
-@import "./components/button";
-
-@import "./components/section";
-@import "./components/container";
-@import "./components/flex";
+@import "./base/common";
 @import "./components/header";
-@import "./components/logo";
-
 @import "./components/hero";
 @import "./components/features";
 @import "./components/whatwedo";
-@import "./components/sociallinks";
 @import "./components/ourteam";
 @import "./components/clients";
 @import "./components/footer";
 @import "./components/filter";
 @import "./components/projects";
-@import "./components/backdrop";
-
 @import "./components/modal";
