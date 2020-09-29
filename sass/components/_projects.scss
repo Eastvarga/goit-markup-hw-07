@@ -1,6 +1,8 @@
 /* portfolio projects задаем основной шрифт списка проектов */
 .projects {
-  font-size: 16px;
+  @extend %flex;
+  @extend %list;
+  font-size: $font-size-second;
   line-height: 1.87;
   /* задаем ширину контента для 3 элементов в строке */
   &__item {
@@ -50,10 +52,10 @@
     margin-top: 0;
     margin-bottom: 4px;
 
-    font-weight: 700;
+    font-weight: $font-weight-base;
     font-size: 18px;
     line-height: 2;
-    letter-spacing: 0.06em;
+    letter-spacing: $letter-spacing-second;
     @extend %title-color;
   }
 }
@@ -75,10 +77,10 @@
     width: 100%;
     padding: 64px 24px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: $font-weight-second;
     font-size: 18px;
     line-height: 1.56;
-    letter-spacing: 0.03em;
+    letter-spacing: $letter-spacing-base;
     vertical-align: middle;
     background: rgba(33, 150, 243, 0.9);
     color: #ffffff;

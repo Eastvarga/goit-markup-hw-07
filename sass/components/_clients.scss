@@ -1,6 +1,8 @@
 /* clients section */
 /* задаем размер иконок компании*/
 .clients {
+  @extend %flex;
+  @extend %list;
   &__item {
     margin: 0;
     width: calc((100% - 30px * 5) / 6);

@@ -12,9 +12,9 @@
   padding-bottom: 24px;
 
   background-color: $white-color;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
+  font-weight: $font-weight-third;
+  font-size: $font-size-base;
+  line-height: $line-height-second;
   letter-spacing: 0.02em;
   /* добавлям линии согласно макета */
   border-top: 1px solid #fff;
@@ -23,17 +23,20 @@
 
 /* навигация по сайту */
 .links {
+  @extend %flex;
+  @extend %list;
+
   & li + li {
     margin-left: 50px;
   }
   &__item {
-    @extend %color-animation;
+    transition: color $time-animation $function-animation;
     @extend %title-color;
     // цвет при фокусе ховере и текущей страницы
     &.links__item--current,
     &:hover,
     &:focus {
-      @extend %accent-color;
+      color: $accent-color;
     }
     &--big {
       @extend %big-paddings;
@@ -59,16 +62,20 @@
 /* центрируем элементы */
 .navigation,
 .contact {
+  @extend %flex;
   align-items: center;
 }
 .contact {
+  @extend %list;
   margin-left: auto;
   &__item {
-    @extend %color-animation;
+    @extend %flex;
+
+    transition: color $time-animation $function-animation;
   }
   &__item:hover,
   &__item:focus {
-    @extend %accent-color;
+    color: $accent-color;
   }
   /* расширяем зону активации ссылок в шапке для лучшего юзабилити */
   &__item--big {

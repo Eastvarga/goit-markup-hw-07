@@ -5,7 +5,8 @@
 
 /* задаем ширину контента, тень карточке,и ориентацию текста */
 .team {
-  @extend %list-margins;
+  @extend %flex;
+  @extend %list;
   &__item {
     width: calc((100% - 30px * 3) / 4);
     background-color: $white-color;
@@ -24,7 +25,7 @@
   &__title {
     margin: 30px 0 10px;
     @extend %title-color;
-    font-weight: 500;
+    font-weight: $font-weight-third;
   }
   /* отступ для формы карточки */
   &__text {

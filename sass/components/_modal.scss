@@ -27,10 +27,10 @@
   &__title {
     display: block;
     margin: 0 0 12px 0;
-    font-weight: 700;
+    font-weight: $font-weight-base;
     font-size: 20px;
     line-height: 1.15;
-    letter-spacing: 0.03em;
+    letter-spacing: $letter-spacing-base;
     color: $title-text-color;
   }
   /* описания инпутов расположить над инпутами */
@@ -57,8 +57,8 @@
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
 
-    font-size: 14px;
-    line-height: 1.14;
+    font-size: $font-size-base;
+    line-height: $line-height-second;
     letter-spacing: 0.01em;
     outline-color: transparent;
     transition: all $time-animation $function-animation;
@@ -115,9 +115,9 @@
     justify-content: flex-end;
 
     font-weight: normal;
-    font-size: 14px;
-    line-height: 1.71;
-    letter-spacing: 0.03em;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    letter-spacing: $letter-spacing-base;
     /* стиль "нечекнутый чекбокс" */
     /* .icon-checkbox */
     &::after {

@@ -3,6 +3,8 @@
 /* создаем объекты флекс и активируем возможность переноса строки для них */
 
 .features {
+  @extend %list;
+  @extend %flex;
   margin: 0;
   padding-left: 0;
   text-align: left;
@@ -27,6 +29,7 @@
   }
   /* контейнеры иконок */
   &__holder {
+    @extend %flex;
     justify-content: center;
     align-items: center;
     margin: 0 0 30px;

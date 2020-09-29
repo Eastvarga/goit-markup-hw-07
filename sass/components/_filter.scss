@@ -3,6 +3,9 @@
 с центрированием элементов по горизонтали*/
 
 .filter {
+  @extend %flex;
+  @extend %list;
+  margin: 0 auto;
   justify-content: center;
   /* задаем отступы для всех кроме последней кнопок*/
   &__item:not(:last-child) {
@@ -18,10 +21,10 @@
     background-color: $alt-bg-color;
     font-family: inherit;
     font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: $font-weight-third;
+    font-size: $font-size-second;
     line-height: 1.62;
-    letter-spacing: 0.03em;
+    letter-spacing: $letter-spacing-base;
     /* animation */
     transition: all $time-animation $function-animation;
     /* окраска при ховере фокусе */

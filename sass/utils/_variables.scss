@@ -11,16 +11,19 @@ $footer-icon-bg-color: rgba(255, 255, 255, 0.1);
 $time-animation: 250ms;
 $function-animation: cubic-bezier(0.4, 0, 0.2, 1);
 
-@font-face {
-  font-family: "Roboto", sans-serif;
-  //   font-style: normal;
-  //   font-display: swap;
-  @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
-}
+// для переменных выбирались значения по частоте встречаемости в коде - самые частые значения - Base
+$font-logo: "Raleway", sans-serif;
+$font-base: "Roboto", sans-serif;
 
-@font-face {
-  font-family: "Roboto", sans-serif;
-  //   font-style: normal;
-  //   font-display: swap;
-  @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
-}
+$font-weight-base: 700;
+$font-weight-second: 400;
+$font-weight-third: 500;
+
+$font-size-base: 14px;
+$font-size-second: 16px;
+
+$line-height-base: 1.71;
+$line-height-second: 1.14;
+
+$letter-spacing-base: 0.03em;
+$letter-spacing-second: 0.06em;

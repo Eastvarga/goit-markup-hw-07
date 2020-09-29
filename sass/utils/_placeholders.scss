@@ -1,5 +1,24 @@
-%accent-color {
-  color: $accent-color;
+/* общие настройки для иконок */
+%icon {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+/* создаем флекс элементы,
+ даем возможность переноса элементов на другую строку */
+%flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* убираем "точечки", марджины и левый паддинг в списках */
+%list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
 }
 
 %big-paddings {
@@ -9,15 +28,11 @@
   padding: 6px 0;
 }
 
-%color-animation {
-  transition: color $time-animation $function-animation;
-}
-
 %features-font {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.03em;
+  font-weight: $font-weight-base;
+  font-size: $font-size-base;
+  line-height: $line-height-second;
+  letter-spacing: $letter-spacing-base;
   text-transform: uppercase;
 }
 
@@ -25,17 +40,12 @@
   margin: 0 0 20px 0;
   /* padding-top: 12px; */
   color: $white-color;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.03em;
+  font-weight: $font-weight-base;
+  font-size: $font-size-base;
+  line-height: $line-height-second;
+  letter-spacing: $letter-spacing-base;
   text-align: left;
   text-transform: uppercase;
-}
-%list-margins {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
 }
 /* focus animation icon input */
 %modal-focus {
@@ -63,4 +73,3 @@
 %title-color {
   color: $title-text-color;
 }
-
