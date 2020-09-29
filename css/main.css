@@ -79,20 +79,10 @@
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* отступы для иконок-ссылок */
-.social__item:not(:nth-child(4n + 1)), .follow__item:not(:nth-child(4n + 1)) {
-  margin-left: 10px;
-}
-
 /* цвет иконок при ховере */
 .social__link:hover, .follow__link:hover {
   background-color: #2196f3;
   color: #ffffff;
-}
-
-/* features, our team, projects titles цвет текста заголовков*/
-.links__item, .features__title, .team__title, .projects__title {
-  color: #212121;
 }
 
 /*! modern-normalize v0.7.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
@@ -428,6 +418,10 @@ a {
   height: 44px;
 }
 
+.social__item:not(:nth-child(4n + 1)) {
+  margin-left: 10px;
+}
+
 /* раскрасим логотип */
 .logo {
   margin-right: 93px;
@@ -492,6 +486,7 @@ a {
 .links__item {
   -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #212121;
 }
 
 .links__item.links__item--current, .links__item:hover, .links__item:focus {
@@ -616,6 +611,7 @@ a {
 }
 
 .features__title {
+  color: #212121;
   margin: 0 0 10px 0;
 }
 
@@ -704,6 +700,7 @@ a {
 
 .team__title {
   margin: 30px 0 10px;
+  color: #212121;
   font-weight: 500;
 }
 
@@ -856,6 +853,10 @@ a {
   height: 44px;
 }
 
+.follow__item:not(:nth-child(4n + 1)) {
+  margin-left: 10px;
+}
+
 /* заголовок соцсетей*/
 /* submit-footer div */
 .submit {
@@ -991,6 +992,7 @@ a {
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
+  color: #212121;
 }
 
 /* тумба для картинок с описанием */

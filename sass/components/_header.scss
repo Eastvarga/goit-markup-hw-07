@@ -31,7 +31,7 @@
   }
   &__item {
     transition: color $time-animation $function-animation;
-    @extend %title-color;
+    color: $title-text-color;
     // цвет при фокусе ховере и текущей страницы
     &.links__item--current,
     &:hover,

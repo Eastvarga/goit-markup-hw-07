@@ -23,7 +23,7 @@
 
   /* задаем шрифты, убираем дефолтные марджины  */
   &__title {
-    @extend %title-color;
+    color: $title-text-color;
     @extend %features-font;
     margin: 0 0 10px 0;
   }

@@ -60,16 +60,8 @@
   transition: fill $time-animation $function-animation;
 }
 
-/* отступы для иконок-ссылок */
-%social-margin {
-  margin-left: 10px;
-}
 /* цвет иконок при ховере */
 %hover-color {
   background-color: $accent-color;
   color: $white-color;
-}
-/* features, our team, projects titles цвет текста заголовков*/
-%title-color {
-  color: $title-text-color;
 }

@@ -62,7 +62,7 @@
     width: 44px;
     height: 44px;
     &:not(:nth-child(4n + 1)) {
-      @extend %social-margin;
+      margin-left: 10px;
     }
   }
   &__title {
@@ -73,7 +73,7 @@
 /* заголовок соцсетей*/
 /* submit-footer div */
 .submit {
-  
+
   @extend %flex;
   width: calc((100% - 30px) / 2);
   margin-left: 30px;

@@ -185,7 +185,7 @@ a {
     width: 44px;
     height: 44px;
     &:not(:nth-child(4n + 1)) {
-      @extend %social-margin;
+      margin-left: 10px;
     }
   }
 }
